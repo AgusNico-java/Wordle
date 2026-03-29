@@ -32,15 +32,18 @@ public class JuegoWordle {
     }
 
     public EstadoLetra[] arriesgarPalabra(String intento) {
-        if (estadoActual != EstadoJuego.EN_CURSO) {
-            throw new IllegalStateException("El juego no está en curso.");
-        }
-        if (intento.length() != palabraSecreta.length()) {
-            throw new IllegalArgumentException("La longitud del intento no coincide con la de la palabra secreta.");
-        }
-
         int longitud = palabraSecreta.length();
         EstadoLetra[] resultado = new EstadoLetra[longitud];
+
+        if (intento.equals(palabraSecreta)) {
+            for (int i = 0; i < longitud; i++) {
+                resultado[i] = EstadoLetra.CORRECTA;
+            }
+            intentoActual++;
+            estadoActual = EstadoJuego.VICTORIA;
+            return resultado;
+        }
+
         StringBuilder copia = new StringBuilder(palabraSecreta);
 
         // letras en posición correcta
@@ -65,18 +68,7 @@ public class JuegoWordle {
 
         intentoActual++;
 
-        // Actualización de estado
-        boolean victoria = true;
-        for (EstadoLetra e : resultado) {
-            if (e != EstadoLetra.CORRECTA) {
-                victoria = false;
-                break;
-            }
-        }
-
-        if (victoria) {
-            estadoActual = EstadoJuego.VICTORIA;
-        } else if (intentoActual >= MAX_INTENTOS) {
+        if (intentoActual >= MAX_INTENTOS) {
             estadoActual = EstadoJuego.DERROTA;
         }
 
