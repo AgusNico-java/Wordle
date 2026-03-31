@@ -1,4 +1,4 @@
-package model;
+package logicaDeNegocio;
 
 public enum Dificultad {
     FACIL,

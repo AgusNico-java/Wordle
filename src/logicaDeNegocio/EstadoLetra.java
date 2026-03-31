@@ -1,4 +1,4 @@
-package model;
+package logicaDeNegocio;
 
 public enum EstadoLetra {
     CORRECTA,
