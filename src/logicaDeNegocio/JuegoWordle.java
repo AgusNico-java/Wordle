@@ -94,4 +94,48 @@ public class JuegoWordle {
     public int getMaxIntentos() {
         return MAX_INTENTOS;
     }
+
+
+    public void readRecordList(){
+        Path path = Path.of(Constants.RECORD_FILE_PATH);
+
+        if (!Files.exists(path)) {
+            this.records = List.of();
+        }
+
+        try {
+            List<String> lines = Files.readAllLines(path);
+            Record[] records = new Record[lines.size()];
+
+            for (int i = 0; i < lines.size(); i++) {
+                String[] parts = lines.get(i).split(Constants.DELIMITER);
+                String name = parts[0];
+                Long time = Long.parseLong(parts[1]);
+                records[i] = new Record(name, time);
+            }
+            this.records = List.of(records);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void writeRecordList() {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(Constants.RECORD_FILE_PATH))) {
+            for (Record record : records) {
+                writer.write(record.getName() + Constants.DELIMITER + record.getTime());
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();;
+        }
+
+    }
+
+    //TODO: IMPLEMENTAR MÉTODO
+    public Record[] showRecords() {
+        // TODO Auto-generated method stub
+        return null;
+    }
 }
