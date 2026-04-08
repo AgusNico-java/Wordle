@@ -45,7 +45,6 @@ public class Juego {
 			this.horaDeVictoria = Instant.now().toEpochMilli();
 			this.estadoDeJuego = EstadoDeJuego.VICTORIA;
 			this.calcularTiempoJuego();
-			this.palabrasUsadas.add(this.formarArregloDeLetrasEnVictoria(palabraArriesgada));
 		}
 		if(intentos == 0 && (!this.estadoDeJuego.equals(EstadoDeJuego.VICTORIA))) {
 			this.estadoDeJuego = EstadoDeJuego.DERROTA;
@@ -68,14 +67,6 @@ public class Juego {
 
 	public String getTiempoDeJuego() {
 		return tiempoDeJuego;
-	}
-
-	private LetraArriesgada[] formarArregloDeLetrasEnVictoria(String palabraArriesgada) {
-		LetraArriesgada[] letrasEnPalabra = new LetraArriesgada[this.numeroDeLetras];
-		for (int i = 0; i < this.numeroDeLetras; i++) {
-			letrasEnPalabra[i] = new LetraArriesgada(palabraArriesgada.charAt(i), Constants.COLOR_LETRA_CORRECTA_EN_POSICION_CORRECTA);
-		}
-		return letrasEnPalabra;
 	}
 	
 	private LetraArriesgada[] formarArregloDeLetrasArriesgadas(String palabraArriesgada) {
