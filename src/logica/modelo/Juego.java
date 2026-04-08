@@ -47,7 +47,7 @@ public class Juego {
 			this.calcularTiempoJuego();
 			this.palabrasUsadas.add(this.formarArregloDeLetrasEnVictoria(palabraArriesgada));
 		}
-		if(intentos == 0) {
+		if(intentos == 0 && (!this.estadoDeJuego.equals(EstadoDeJuego.VICTORIA))) {
 			this.estadoDeJuego = EstadoDeJuego.DERROTA;
 		}
 		this.palabrasUsadas.add(this.formarArregloDeLetrasArriesgadas(palabraArriesgada));		
