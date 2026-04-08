@@ -9,6 +9,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
+
+import logica.modelo.Dificultad;
+
 import javax.swing.ButtonGroup;
 
 public class SeleccionDeNivel extends JFrame {
@@ -46,19 +49,19 @@ public class SeleccionDeNivel extends JFrame {
 		facilRadioButton.setSelected(true);
 		buttonGroup.add(facilRadioButton);
 		facilRadioButton.setBounds(121, 119, 102, 20);
-		facilRadioButton.setActionCommand("Facil");
+		facilRadioButton.setActionCommand(Dificultad.FACIL.getNombre());
 		getContentPane().add(facilRadioButton);
 		
 		JRadioButton medioRadioButton = new JRadioButton("Medio");
 		buttonGroup.add(medioRadioButton);
 		medioRadioButton.setBounds(121, 152, 102, 20);
-		medioRadioButton.setActionCommand("Medio");
+		medioRadioButton.setActionCommand(Dificultad.MEDIO.getNombre());
 		getContentPane().add(medioRadioButton);
 		
 		JRadioButton dificilRadioButton = new JRadioButton("Dificil");
 		buttonGroup.add(dificilRadioButton);
 		dificilRadioButton.setBounds(121, 192, 102, 20);
-		dificilRadioButton.setActionCommand("Dificil");
+		dificilRadioButton.setActionCommand(Dificultad.DIFICIL.getNombre());
 		getContentPane().add(dificilRadioButton);
 		
 		JButton botonIniciarPartida = new JButton("Jugar!");

@@ -104,6 +104,7 @@ public class WordleWindow extends JFrame {
                 }
             }
         });
+        ingresoDePalabra.addActionListener(e -> botonArriesgar.doClick());
         botonArriesgar.setBounds(198, 77, 101, 24);
         getContentPane().add(botonArriesgar);
 

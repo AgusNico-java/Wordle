@@ -28,8 +28,8 @@ public class Juego {
 	public Juego(String dificultad) {
 		this.horaDeInicio = Instant.now().toEpochMilli();
 		this.intentos = 6;
-		this.palabraSecreta = this.elegirPalabra(Constants.LETRAS_POR_NIVEL.get(dificultad));
-		this.numeroDeLetras = Constants.LETRAS_POR_NIVEL.get(dificultad);
+		this.palabraSecreta = this.elegirPalabra(Dificultad.fromNombre(dificultad).getLetras());
+		this.numeroDeLetras = Dificultad.fromNombre(dificultad).getLetras();
 		this.estadoDeJuego = EstadoDeJuego.EN_CURSO;
 		this.palabrasUsadas = new ArrayList<>();
 	}
