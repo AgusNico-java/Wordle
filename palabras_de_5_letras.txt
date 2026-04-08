@@ -1,0 +1,10 @@
+arbol
+libro
+mesas
+silla
+perro
+gatos
+casas
+coche
+aguas
+fuego
