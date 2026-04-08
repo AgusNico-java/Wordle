@@ -43,6 +43,7 @@ public class SeleccionDeNivel extends JFrame {
 		});
 		
 		JRadioButton facilRadioButton = new JRadioButton("Facil");
+		facilRadioButton.setSelected(true);
 		buttonGroup.add(facilRadioButton);
 		facilRadioButton.setBounds(121, 119, 102, 20);
 		facilRadioButton.setActionCommand("Facil");
