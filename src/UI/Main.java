@@ -43,7 +43,7 @@ public class Main extends JFrame {
     }
 
     private void initialize() {
-        setSize(550, 420);
+        setSize(620, 480);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setTitle("Wordle");
@@ -54,44 +54,44 @@ public class Main extends JFrame {
         lblTitulo.setFont(new Font("Segoe UI", Font.BOLD, 38));
         lblTitulo.setForeground(Color.decode("#538d4e"));
         lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
-        lblTitulo.setBounds(0, 50, 550, 50);
+        lblTitulo.setBounds(0, 50, 620, 50);
         getContentPane().add(lblTitulo);
 
         JLabel lblPregunta = new JLabel("¿Querés jugar?");
         lblPregunta.setFont(new Font("Segoe UI", Font.PLAIN, 16));
         lblPregunta.setForeground(TEXT_MUTED);
         lblPregunta.setHorizontalAlignment(SwingConstants.CENTER);
-        lblPregunta.setBounds(0, 110, 550, 25);
+        lblPregunta.setBounds(0, 110, 620, 25);
         getContentPane().add(lblPregunta);
 
         JButton newGameButton = crearBoton("Sí", BTN_PRIMARY, BTN_HOVER);
-        newGameButton.setBounds(165, 160, 100, 38);
+        newGameButton.setBounds(200, 160, 100, 38);
         getContentPane().add(newGameButton);
 
         JButton noButton = crearBoton("No", BTN_DANGER, BTN_DANGER_HOVER);
-        noButton.setBounds(285, 160, 100, 38);
+        noButton.setBounds(320, 160, 100, 38);
         getContentPane().add(noButton);
 
         JLabel lblCurso = new JLabel("TP Programación III · Com 01");
         lblCurso.setFont(new Font("Segoe UI", Font.BOLD, 11));
         lblCurso.setForeground(TEXT_MUTED);
         lblCurso.setHorizontalAlignment(SwingConstants.CENTER);
-        lblCurso.setBounds(0, 230, 550, 18);
+        lblCurso.setBounds(0, 230, 620, 18);
         getContentPane().add(lblCurso);
 
         JLabel lblIntegrantes = new JLabel("Rocha · Gomez Rodriguez · Sangueso · Taibo Cruz");
         lblIntegrantes.setFont(new Font("Segoe UI", Font.PLAIN, 11));
         lblIntegrantes.setForeground(Color.decode("#505052"));
         lblIntegrantes.setHorizontalAlignment(SwingConstants.CENTER);
-        lblIntegrantes.setBounds(0, 250, 550, 18);
+        lblIntegrantes.setBounds(0, 250, 620, 18);
         getContentPane().add(lblIntegrantes);
 
         JButton instruccionesButton = crearBoton("Cómo Jugar", BTN_GHOST, BTN_GHOST_HOVER);
-        instruccionesButton.setBounds(30, 330, 140, 32);
+        instruccionesButton.setBounds(30, 390, 140, 32);
         getContentPane().add(instruccionesButton);
 
         JButton recordsButton = crearBoton("Records", BTN_GHOST, BTN_GHOST_HOVER);
-        recordsButton.setBounds(380, 330, 140, 32);
+        recordsButton.setBounds(434, 390, 140, 32);
         getContentPane().add(recordsButton);
 
         newGameButton.addActionListener(new ActionListener() {

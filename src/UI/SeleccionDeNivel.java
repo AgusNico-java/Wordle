@@ -35,7 +35,7 @@ public class SeleccionDeNivel extends JFrame {
     }
 
     private void initialize(JFrame parent) {
-        setSize(550, 420);
+        setSize(620, 480);
         setLocationRelativeTo(parent);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setTitle("Wordle");
@@ -46,24 +46,24 @@ public class SeleccionDeNivel extends JFrame {
         titulo.setFont(new Font("Segoe UI", Font.BOLD, 24));
         titulo.setForeground(TEXT);
         titulo.setHorizontalAlignment(SwingConstants.CENTER);
-        titulo.setBounds(0, 40, 550, 35);
+        titulo.setBounds(0, 40, 620, 35);
         getContentPane().add(titulo);
 
         JLabel subtitulo = new JLabel("¿Cuántas letras querés adivinar?");
         subtitulo.setFont(new Font("Segoe UI", Font.PLAIN, 14));
         subtitulo.setForeground(TEXT_MUTED);
         subtitulo.setHorizontalAlignment(SwingConstants.CENTER);
-        subtitulo.setBounds(0, 85, 550, 20);
+        subtitulo.setBounds(0, 85, 620, 20);
         getContentPane().add(subtitulo);
 
         JButton botonIniciarPartida = Main.crearBoton("Jugar!", FACIL_COLOR, FACIL_COLOR.brighter());
-        botonIniciarPartida.setBounds(400, 335, 120, 35);
+        botonIniciarPartida.setBounds(454, 395, 120, 35);
         botonIniciarPartida.setEnabled(false);
         botonIniciarPartida.setBackground(Color.decode("#3a3a3c"));
         getContentPane().add(botonIniciarPartida);
 
         JButton botonVolver = Main.crearBoton("← Volver", Color.decode("#1a1a1b"), Color.decode("#2c2c2e"));
-        botonVolver.setBounds(20, 335, 110, 35);
+        botonVolver.setBounds(20, 395, 110, 35);
         getContentPane().add(botonVolver);
 
         JRadioButton facilRadioButton   = crearRadioButton("Fácil  · 5 letras");
@@ -74,9 +74,9 @@ public class SeleccionDeNivel extends JFrame {
         buttonGroup.add(medioRadioButton);
         buttonGroup.add(dificilRadioButton);
 
-        facilRadioButton.setBounds(175, 140, 200, 35);
-        medioRadioButton.setBounds(175, 190, 200, 35);
-        dificilRadioButton.setBounds(175, 240, 200, 35);
+        facilRadioButton.setBounds(210, 140, 200, 35);
+        medioRadioButton.setBounds(210, 195, 200, 35);
+        dificilRadioButton.setBounds(210, 250, 200, 35);
 
         facilRadioButton.setActionCommand(Dificultad.FACIL.getNombre());
         medioRadioButton.setActionCommand(Dificultad.MEDIO.getNombre());
