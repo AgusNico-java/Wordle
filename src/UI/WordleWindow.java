@@ -30,7 +30,7 @@ public class WordleWindow extends JFrame {
     private static final Color TEXT_MUTED = Color.decode("#818384");
 
     private static final int CELL_SIZE   = 45;
-    private static final int GRID_X      = 75;
+    private static final int GRID_X      = 110;
     private static final int GRID_Y      = 115;
     private static final int GRID_WIDTH  = 400;
     private static final int GRID_HEIGHT = 300;
@@ -42,7 +42,7 @@ public class WordleWindow extends JFrame {
     public WordleWindow(JFrame parent, String dificultad) {
         this.juego = new Juego(dificultad);
 
-        setSize(550, 520);
+        setSize(620, 580);
         setLocationRelativeTo(parent);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setTitle("Wordle");
@@ -53,7 +53,7 @@ public class WordleWindow extends JFrame {
         titulo.setFont(new Font("Segoe UI", Font.BOLD, 22));
         titulo.setForeground(Color.decode("#538d4e"));
         titulo.setHorizontalAlignment(SwingConstants.CENTER);
-        titulo.setBounds(0, 15, 550, 30);
+        titulo.setBounds(0, 15, 620, 30);
         getContentPane().add(titulo);
 
         JLabel lblPalabraSecreta = new JLabel("Palabra secreta: " + juego.palabraSecreta);
@@ -65,7 +65,7 @@ public class WordleWindow extends JFrame {
         JLabel etiqueta = new JLabel("Ingresá una palabra");
         etiqueta.setFont(new Font("Segoe UI", Font.PLAIN, 12));
         etiqueta.setForeground(TEXT_MUTED);
-        etiqueta.setBounds(75, 58, 150, 20);
+        etiqueta.setBounds(110, 58, 150, 20);
         getContentPane().add(etiqueta);
 
         ingresoDePalabra = new JTextField();
@@ -77,7 +77,7 @@ public class WordleWindow extends JFrame {
             BorderFactory.createLineBorder(Color.decode("#3a3a3c"), 1),
             BorderFactory.createEmptyBorder(4, 8, 4, 8)
         ));
-        ingresoDePalabra.setBounds(75, 80, 240, 28);
+        ingresoDePalabra.setBounds(110, 80, 240, 28);
         ingresoDePalabra.setColumns(10);
         ingresoDePalabra.addKeyListener(new KeyAdapter() {
             @Override
@@ -90,7 +90,7 @@ public class WordleWindow extends JFrame {
         getContentPane().add(ingresoDePalabra);
 
         JButton botonArriesgar = Main.crearBoton("Arriesgar", Color.decode("#538d4e"), Color.decode("#6aaf5e"));
-        botonArriesgar.setBounds(325, 80, 110, 28);
+        botonArriesgar.setBounds(360, 80, 110, 28);
         getContentPane().add(botonArriesgar);
 
         grillaPalabras = new JPanel();
@@ -102,7 +102,7 @@ public class WordleWindow extends JFrame {
         panelIntentos.setLayout(null);
         panelIntentos.setBackground(Color.decode("#1a1a1b"));
         panelIntentos.setBorder(BorderFactory.createLineBorder(Color.decode("#3a3a3c"), 1));
-        panelIntentos.setBounds(75, 425, 200, 30);
+        panelIntentos.setBounds(110, 425, 200, 30);
         getContentPane().add(panelIntentos);
 
         JLabel intentosLabel = new JLabel("Intentos restantes:");
@@ -118,7 +118,7 @@ public class WordleWindow extends JFrame {
         panelIntentos.add(numeroIntentos);
 
         JButton btnRendirse = Main.crearBoton("Rendirse", Color.decode("#3a3a3c"), Color.decode("#535355"));
-        btnRendirse.setBounds(390, 425, 100, 30);
+        btnRendirse.setBounds(430, 425, 100, 30);
         getContentPane().add(btnRendirse);
 
         botonArriesgar.addActionListener(new ActionListener() {
