@@ -26,7 +26,7 @@ public class Victoria extends JFrame {
     }
 
     private void initialize(JFrame main, String tiempoDeJuego) {
-        setSize(550, 420);
+        setSize(620, 480);
         setLocationRelativeTo(main);
         setTitle("Wordle");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -37,21 +37,21 @@ public class Victoria extends JFrame {
         titulo.setFont(new Font("Segoe UI", Font.BOLD, 36));
         titulo.setForeground(GREEN);
         titulo.setHorizontalAlignment(SwingConstants.CENTER);
-        titulo.setBounds(0, 40, 550, 50);
+        titulo.setBounds(0, 40, 620, 50);
         getContentPane().add(titulo);
 
         JLabel texto = new JLabel("Adivinaste la palabra en:");
         texto.setFont(new Font("Segoe UI", Font.PLAIN, 15));
         texto.setForeground(TEXT_MUTED);
         texto.setHorizontalAlignment(SwingConstants.CENTER);
-        texto.setBounds(0, 105, 550, 25);
+        texto.setBounds(0, 105, 620, 25);
         getContentPane().add(texto);
 
         JLabel tiempo = new JLabel(tiempoDeJuego);
         tiempo.setFont(new Font("Segoe UI", Font.BOLD, 28));
         tiempo.setForeground(TEXT);
         tiempo.setHorizontalAlignment(SwingConstants.CENTER);
-        tiempo.setBounds(0, 135, 550, 40);
+        tiempo.setBounds(0, 135, 620, 40);
         getContentPane().add(tiempo);
 
         JLabel ingresoDeNombreLabel = new JLabel("Ingresá tu nombre para el ranking:");
@@ -71,11 +71,11 @@ public class Victoria extends JFrame {
             BorderFactory.createLineBorder(Color.decode("#3a3a3c"), 1),
             BorderFactory.createEmptyBorder(4, 8, 4, 8)
         ));
-        nombre.setBounds(175, 230, 200, 30);
+        nombre.setBounds(210, 230, 200, 30);
         getContentPane().add(nombre);
 
         JButton btnRegistrar = Main.crearBoton("Registrar", GREEN, Color.decode("#6aaf5e"));
-        btnRegistrar.setBounds(215, 280, 120, 32);
+        btnRegistrar.setBounds(250, 280, 120, 32);
         getContentPane().add(btnRegistrar);
 
         btnRegistrar.addActionListener(new ActionListener() {

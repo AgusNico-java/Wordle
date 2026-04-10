@@ -25,7 +25,7 @@ public class Derrota extends JFrame {
     }
 
     private void initialize(JFrame main) {
-        setSize(550, 420);
+        setSize(620, 480);
         setLocationRelativeTo(main);
         setTitle("Wordle");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -36,29 +36,29 @@ public class Derrota extends JFrame {
         titulo.setFont(new Font("Segoe UI", Font.BOLD, 36));
         titulo.setForeground(RED);
         titulo.setHorizontalAlignment(SwingConstants.CENTER);
-        titulo.setBounds(0, 50, 550, 50);
+        titulo.setBounds(0, 50, 620, 50);
         getContentPane().add(titulo);
 
         JLabel etiqueta = new JLabel("La palabra secreta era:");
         etiqueta.setFont(new Font("Segoe UI", Font.PLAIN, 15));
         etiqueta.setForeground(TEXT_MUTED);
         etiqueta.setHorizontalAlignment(SwingConstants.CENTER);
-        etiqueta.setBounds(0, 120, 550, 25);
+        etiqueta.setBounds(0, 120, 620, 25);
         getContentPane().add(etiqueta);
 
         JLabel lblPalabra = new JLabel(this.palabraSecreta.toUpperCase());
         lblPalabra.setFont(new Font("Segoe UI", Font.BOLD, 28));
         lblPalabra.setForeground(TEXT);
         lblPalabra.setHorizontalAlignment(SwingConstants.CENTER);
-        lblPalabra.setBounds(0, 150, 550, 40);
+        lblPalabra.setBounds(0, 150, 620, 40);
         getContentPane().add(lblPalabra);
 
         JButton botonMenuPrincipal = Main.crearBoton("Volver al inicio", Color.decode("#3a3a3c"), Color.decode("#535355"));
-        botonMenuPrincipal.setBounds(100, 260, 155, 35);
+        botonMenuPrincipal.setBounds(138, 310, 155, 35);
         getContentPane().add(botonMenuPrincipal);
 
         JButton botonIntentarDeNuevo = Main.crearBoton("Intentar de nuevo", Color.decode("#538d4e"), Color.decode("#6aaf5e"));
-        botonIntentarDeNuevo.setBounds(295, 260, 160, 35);
+        botonIntentarDeNuevo.setBounds(328, 310, 160, 35);
         getContentPane().add(botonIntentarDeNuevo);
 
         botonMenuPrincipal.addActionListener(new ActionListener() {
