@@ -15,6 +15,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 import javax.swing.SwingConstants;
+<<<<<<< HEAD
+=======
+import javax.swing.WindowConstants;
+>>>>>>> master
 
 import logica.modelo.Dificultad;
 
@@ -37,7 +41,11 @@ public class SeleccionDeNivel extends JFrame {
     private void initialize(JFrame parent) {
         setSize(620, 480);
         setLocationRelativeTo(parent);
+<<<<<<< HEAD
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+=======
+        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+>>>>>>> master
         setTitle("Wordle");
         getContentPane().setBackground(BG);
         getContentPane().setLayout(null);
@@ -83,7 +91,12 @@ public class SeleccionDeNivel extends JFrame {
         dificilRadioButton.setActionCommand(Dificultad.DIFICIL.getNombre());
 
         facilRadioButton.addActionListener(new ActionListener() {
+<<<<<<< HEAD
             public void actionPerformed(ActionEvent e) {
+=======
+            @Override
+			public void actionPerformed(ActionEvent e) {
+>>>>>>> master
                 getContentPane().setBackground(mezclarConFondo(FACIL_COLOR, 0.08f));
                 botonIniciarPartida.setBackground(FACIL_COLOR);
                 botonIniciarPartida.setEnabled(true);
@@ -92,7 +105,12 @@ public class SeleccionDeNivel extends JFrame {
         });
 
         medioRadioButton.addActionListener(new ActionListener() {
+<<<<<<< HEAD
             public void actionPerformed(ActionEvent e) {
+=======
+            @Override
+			public void actionPerformed(ActionEvent e) {
+>>>>>>> master
                 getContentPane().setBackground(mezclarConFondo(MEDIO_COLOR, 0.08f));
                 botonIniciarPartida.setBackground(MEDIO_COLOR);
                 botonIniciarPartida.setEnabled(true);
@@ -101,7 +119,12 @@ public class SeleccionDeNivel extends JFrame {
         });
 
         dificilRadioButton.addActionListener(new ActionListener() {
+<<<<<<< HEAD
             public void actionPerformed(ActionEvent e) {
+=======
+            @Override
+			public void actionPerformed(ActionEvent e) {
+>>>>>>> master
                 getContentPane().setBackground(mezclarConFondo(DIFICIL_COLOR, 0.08f));
                 botonIniciarPartida.setBackground(DIFICIL_COLOR);
                 botonIniciarPartida.setEnabled(true);
@@ -114,14 +137,24 @@ public class SeleccionDeNivel extends JFrame {
         getContentPane().add(dificilRadioButton);
 
         botonVolver.addActionListener(new ActionListener() {
+<<<<<<< HEAD
             public void actionPerformed(ActionEvent e) {
+=======
+            @Override
+			public void actionPerformed(ActionEvent e) {
+>>>>>>> master
                 parent.setVisible(true);
                 dispose();
             }
         });
 
         botonIniciarPartida.addActionListener(new ActionListener() {
+<<<<<<< HEAD
             public void actionPerformed(ActionEvent e) {
+=======
+            @Override
+			public void actionPerformed(ActionEvent e) {
+>>>>>>> master
                 String dificultad = buttonGroup.getSelection().getActionCommand();
                 WordleWindow wordleWindow = new WordleWindow(parent, dificultad);
                 wordleWindow.setVisible(true);
@@ -139,9 +172,19 @@ public class SeleccionDeNivel extends JFrame {
         rb.setCursor(new Cursor(Cursor.HAND_CURSOR));
         rb.setBorder(BorderFactory.createEmptyBorder(4, 12, 4, 12));
         rb.addMouseListener(new MouseAdapter() {
+<<<<<<< HEAD
             public void mouseEntered(MouseEvent e) { rb.setForeground(TEXT); }
             public void mouseExited(MouseEvent e)  {
                 if (!rb.isSelected()) rb.setForeground(TEXT_MUTED);
+=======
+            @Override
+			public void mouseEntered(MouseEvent e) { rb.setForeground(TEXT); }
+            @Override
+			public void mouseExited(MouseEvent e)  {
+                if (!rb.isSelected()) {
+					rb.setForeground(TEXT_MUTED);
+				}
+>>>>>>> master
             }
         });
         return rb;

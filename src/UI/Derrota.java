@@ -2,13 +2,22 @@ package UI;
 
 import java.awt.Color;
 import java.awt.Font;
+<<<<<<< HEAD
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+=======
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+>>>>>>> master
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+<<<<<<< HEAD
+=======
+import javax.swing.WindowConstants;
+>>>>>>> master
 
 public class Derrota extends JFrame {
 
@@ -28,7 +37,11 @@ public class Derrota extends JFrame {
         setSize(620, 480);
         setLocationRelativeTo(main);
         setTitle("Wordle");
+<<<<<<< HEAD
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+=======
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+>>>>>>> master
         getContentPane().setBackground(BG);
         getContentPane().setLayout(null);
 
@@ -62,14 +75,24 @@ public class Derrota extends JFrame {
         getContentPane().add(botonIntentarDeNuevo);
 
         botonMenuPrincipal.addActionListener(new ActionListener() {
+<<<<<<< HEAD
             public void actionPerformed(ActionEvent e) {
+=======
+            @Override
+			public void actionPerformed(ActionEvent e) {
+>>>>>>> master
                 main.setVisible(true);
                 dispose();
             }
         });
 
         botonIntentarDeNuevo.addActionListener(new ActionListener() {
+<<<<<<< HEAD
             public void actionPerformed(ActionEvent e) {
+=======
+            @Override
+			public void actionPerformed(ActionEvent e) {
+>>>>>>> master
                 SeleccionDeNivel seleccionDeNivel = new SeleccionDeNivel(main);
                 seleccionDeNivel.setVisible(true);
                 dispose();

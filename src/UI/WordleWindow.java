@@ -1,7 +1,10 @@
 package UI;
 
 import java.awt.Color;
+<<<<<<< HEAD
 import java.awt.Cursor;
+=======
+>>>>>>> master
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -15,13 +18,26 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+<<<<<<< HEAD
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+=======
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.WindowConstants;
+>>>>>>> master
 
 import logica.modelo.EstadoDeJuego;
 import logica.modelo.Juego;
 import logica.modelo.LetraArriesgada;
+<<<<<<< HEAD
+=======
+import logica.modelo.Record;
+import logica.modelo.RecordTable;
+>>>>>>> master
 
 public class WordleWindow extends JFrame {
 
@@ -44,7 +60,11 @@ public class WordleWindow extends JFrame {
 
         setSize(620, 580);
         setLocationRelativeTo(parent);
+<<<<<<< HEAD
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+=======
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+>>>>>>> master
         setTitle("Wordle");
         getContentPane().setBackground(BG);
         getContentPane().setLayout(null);
@@ -83,8 +103,17 @@ public class WordleWindow extends JFrame {
             @Override
             public void keyTyped(KeyEvent e) {
                 char c = e.getKeyChar();
+<<<<<<< HEAD
                 if (!Character.isLetter(c) && c != ' ') e.consume();
                 if (ingresoDePalabra.getText().length() >= juego.getNumeroDeLetras()) e.consume();
+=======
+                if (!Character.isLetter(c) && c != ' ') {
+					e.consume();
+				}
+                if (ingresoDePalabra.getText().length() >= juego.getNumeroDeLetras()) {
+					e.consume();
+				}
+>>>>>>> master
             }
         });
         getContentPane().add(ingresoDePalabra);
@@ -122,7 +151,12 @@ public class WordleWindow extends JFrame {
         getContentPane().add(btnRendirse);
 
         botonArriesgar.addActionListener(new ActionListener() {
+<<<<<<< HEAD
             public void actionPerformed(ActionEvent e) {
+=======
+            @Override
+			public void actionPerformed(ActionEvent e) {
+>>>>>>> master
                 juego.verificarPalabra(ingresoDePalabra.getText());
                 numeroIntentos.setText(String.valueOf(juego.getIntentos()));
                 actualizarGrilla(juego.getPalabrasUsadas());
@@ -132,10 +166,36 @@ public class WordleWindow extends JFrame {
                     dispararPantallaDerrota(parent);
                 }
                 if (juego.getEstadoDeJuego().equals(EstadoDeJuego.VICTORIA)) {
+<<<<<<< HEAD
+=======
+                    // 1. Obtenemos el texto (ej: "00:53")
+                    String tiempoTexto = juego.getTiempoDeJuego(); 
+                    
+                    // 2. Lo dividimos en el array: partes[0] son minutos, partes[1] son segundos
+                    String[] partes = tiempoTexto.split(":");
+                    
+                    // 3. Parseamos cada parte a número
+                    long minutos = Long.parseLong(partes[0]);
+                    long segundos = Long.parseLong(partes[1]);
+                    
+                    // 4. Convertimos a milisegundos
+                    // Multiplicamos por 60 para ir a segundos, y por 1000 para llegar a milisegundos
+                    long tiempoEnMilis = ((minutos * 60) + segundos) * 1000;
+
+                    String nombre = JOptionPane.showInputDialog("Ingrese su nombre:");
+                    
+                    if (nombre != null && !nombre.trim().isEmpty()) {
+                        RecordTable tabla = new RecordTable();
+                        // Ahora el Record recibe el tiempo en milisegundos (53000 en este caso)
+                        tabla.agregarRecord(new Record(nombre, tiempoEnMilis));
+                    }
+
+>>>>>>> master
                     dispararPantallaVictoria(parent);
                 }
             }
         });
+<<<<<<< HEAD
 
         ingresoDePalabra.addActionListener(e -> botonArriesgar.doClick());
 
@@ -143,6 +203,8 @@ public class WordleWindow extends JFrame {
             dispose();
             parent.setVisible(true);
         });
+=======
+>>>>>>> master
     }
 
     private void actualizarGrilla(List<LetraArriesgada[]> palabrasUsadas) {

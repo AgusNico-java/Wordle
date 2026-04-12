@@ -1,7 +1,10 @@
 package logica;
 
+<<<<<<< HEAD
 import java.util.Map;
 
+=======
+>>>>>>> master
 public class Constants {
 
 	public static final String COLOR_LETRA_CORRECTA_EN_POSICION_CORRECTA = "#00ff00";

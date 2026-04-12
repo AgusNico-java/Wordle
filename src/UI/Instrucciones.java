@@ -11,6 +11,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+<<<<<<< HEAD
+=======
+import javax.swing.WindowConstants;
+>>>>>>> master
 
 public class Instrucciones extends JFrame {
 
@@ -26,7 +30,11 @@ public class Instrucciones extends JFrame {
         setSize(620, 480);
         setLocationRelativeTo(parent);
         setTitle("Wordle");
+<<<<<<< HEAD
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+=======
+        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+>>>>>>> master
         getContentPane().setBackground(BG);
         getContentPane().setLayout(null);
 
@@ -64,14 +72,24 @@ public class Instrucciones extends JFrame {
         getContentPane().add(botonJugar);
 
         botonVolver.addActionListener(new ActionListener() {
+<<<<<<< HEAD
             public void actionPerformed(ActionEvent e) {
+=======
+            @Override
+			public void actionPerformed(ActionEvent e) {
+>>>>>>> master
                 parent.setVisible(true);
                 dispose();
             }
         });
 
         botonJugar.addActionListener(new ActionListener() {
+<<<<<<< HEAD
             public void actionPerformed(ActionEvent e) {
+=======
+            @Override
+			public void actionPerformed(ActionEvent e) {
+>>>>>>> master
                 SeleccionDeNivel seleccionDeNivel = new SeleccionDeNivel(parent);
                 seleccionDeNivel.setVisible(true);
                 dispose();

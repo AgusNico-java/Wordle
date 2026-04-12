@@ -2,8 +2,13 @@ package UI;
 
 import java.awt.Color;
 import java.awt.Font;
+<<<<<<< HEAD
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+=======
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+>>>>>>> master
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -11,6 +16,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+<<<<<<< HEAD
+=======
+import javax.swing.WindowConstants;
+>>>>>>> master
 
 public class Victoria extends JFrame {
 
@@ -29,7 +38,11 @@ public class Victoria extends JFrame {
         setSize(620, 480);
         setLocationRelativeTo(main);
         setTitle("Wordle");
+<<<<<<< HEAD
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+=======
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+>>>>>>> master
         getContentPane().setBackground(BG);
         getContentPane().setLayout(null);
 
@@ -79,7 +92,12 @@ public class Victoria extends JFrame {
         getContentPane().add(btnRegistrar);
 
         btnRegistrar.addActionListener(new ActionListener() {
+<<<<<<< HEAD
             public void actionPerformed(ActionEvent e) {
+=======
+            @Override
+			public void actionPerformed(ActionEvent e) {
+>>>>>>> master
                 // TODO: guardar record
                 main.setVisible(true);
                 dispose();

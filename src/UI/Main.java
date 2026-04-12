@@ -14,10 +14,19 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+<<<<<<< HEAD
 
 public class Main extends JFrame {
 
     private static final Color BG          = Color.decode("#121213");
+=======
+import javax.swing.WindowConstants;
+
+public class Main extends JFrame {
+
+    private static final long serialVersionUID = 1L;
+	private static final Color BG          = Color.decode("#121213");
+>>>>>>> master
     private static final Color BTN_PRIMARY = Color.decode("#538d4e");
     private static final Color BTN_HOVER   = Color.decode("#6aaf5e");
     private static final Color BTN_DANGER  = Color.decode("#3a3a3c");
@@ -45,7 +54,11 @@ public class Main extends JFrame {
     private void initialize() {
         setSize(620, 480);
         setLocationRelativeTo(null);
+<<<<<<< HEAD
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+=======
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+>>>>>>> master
         setTitle("Wordle");
         getContentPane().setBackground(BG);
         getContentPane().setLayout(null);
@@ -95,7 +108,12 @@ public class Main extends JFrame {
         getContentPane().add(recordsButton);
 
         newGameButton.addActionListener(new ActionListener() {
+<<<<<<< HEAD
             public void actionPerformed(ActionEvent e) {
+=======
+            @Override
+			public void actionPerformed(ActionEvent e) {
+>>>>>>> master
                 SeleccionDeNivel seleccionDeNivel = new SeleccionDeNivel(Main.this);
                 seleccionDeNivel.setVisible(true);
                 setVisible(false);
@@ -103,13 +121,23 @@ public class Main extends JFrame {
         });
 
         noButton.addActionListener(new ActionListener() {
+<<<<<<< HEAD
             public void actionPerformed(ActionEvent e) {
+=======
+            @Override
+			public void actionPerformed(ActionEvent e) {
+>>>>>>> master
                 System.exit(0);
             }
         });
 
         instruccionesButton.addActionListener(new ActionListener() {
+<<<<<<< HEAD
             public void actionPerformed(ActionEvent e) {
+=======
+            @Override
+			public void actionPerformed(ActionEvent e) {
+>>>>>>> master
                 Instrucciones instrucciones = new Instrucciones(Main.this);
                 instrucciones.setVisible(true);
                 setVisible(false);
@@ -117,7 +145,12 @@ public class Main extends JFrame {
         });
 
         recordsButton.addActionListener(new ActionListener() {
+<<<<<<< HEAD
             public void actionPerformed(ActionEvent e) {
+=======
+            @Override
+			public void actionPerformed(ActionEvent e) {
+>>>>>>> master
                 Records records = new Records(Main.this);
                 records.setVisible(true);
                 setVisible(false);
@@ -136,8 +169,15 @@ public class Main extends JFrame {
         btn.setCursor(new Cursor(Cursor.HAND_CURSOR));
         btn.setBorder(BorderFactory.createEmptyBorder(6, 16, 6, 16));
         btn.addMouseListener(new MouseAdapter() {
+<<<<<<< HEAD
             public void mouseEntered(MouseEvent e) { btn.setBackground(hover); }
             public void mouseExited(MouseEvent e)  { btn.setBackground(normal); }
+=======
+            @Override
+			public void mouseEntered(MouseEvent e) { btn.setBackground(hover); }
+            @Override
+			public void mouseExited(MouseEvent e)  { btn.setBackground(normal); }
+>>>>>>> master
         });
         return btn;
     }
