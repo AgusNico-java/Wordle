@@ -1,66 +1,89 @@
 package UI;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JLabel;
+import java.awt.Color;
 import java.awt.Font;
-import javax.swing.JTextField;
-import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+
 public class Victoria extends JFrame {
-	private JTextField nombre;
 
-	public Victoria(JFrame main, String tiempoDeJuego) {
-		initialize(main, tiempoDeJuego);
-	}
+    private static final Color BG         = Color.decode("#121213");
+    private static final Color TEXT       = Color.WHITE;
+    private static final Color TEXT_MUTED = Color.decode("#818384");
+    private static final Color GREEN      = Color.decode("#538d4e");
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize(JFrame main, String tiempoDeJuego) {
-		setBounds(100, 100, 450, 300);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		getContentPane().setLayout(null);
-		
-		JLabel titulo = new JLabel("VICTORIA");
-		titulo.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		titulo.setBounds(130, 10, 131, 66);
-		getContentPane().add(titulo);
-		
-		JLabel texto = new JLabel("Adivinaste la palabra secreta en: ");
-		texto.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		texto.setBounds(109, 86, 236, 43);
-		getContentPane().add(texto);
-		
-		nombre = new JTextField();
-		nombre.setBounds(109, 181, 96, 18);
-		getContentPane().add(nombre);
-		nombre.setColumns(10);
-		
-		JLabel ingresoDeNombreLabel = new JLabel("Ingresa tu nombre: ");
-		ingresoDeNombreLabel.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		ingresoDeNombreLabel.setBounds(104, 150, 122, 21);
-		getContentPane().add(ingresoDeNombreLabel);
-		
-		JButton btnNewButton = new JButton("Registrar");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				//TODO: Registrar nombre para enviar record
-				
-				main.setVisible(true);
-				setVisible(false);
-			}
-		});
-		btnNewButton.setBounds(237, 180, 84, 20);
-		getContentPane().add(btnNewButton);
-		
-		JLabel tiempo = new JLabel(tiempoDeJuego);
-		tiempo.setBounds(155, 118, 122, 27);
-		getContentPane().add(tiempo);
-		
-	}
+    private JTextField nombre;
 
+    public Victoria(JFrame main, String tiempoDeJuego) {
+        initialize(main, tiempoDeJuego);
+    }
+
+    private void initialize(JFrame main, String tiempoDeJuego) {
+        setSize(620, 480);
+        setLocationRelativeTo(main);
+        setTitle("Wordle");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        getContentPane().setBackground(BG);
+        getContentPane().setLayout(null);
+
+        JLabel titulo = new JLabel("¡VICTORIA!");
+        titulo.setFont(new Font("Segoe UI", Font.BOLD, 36));
+        titulo.setForeground(GREEN);
+        titulo.setHorizontalAlignment(SwingConstants.CENTER);
+        titulo.setBounds(0, 40, 620, 50);
+        getContentPane().add(titulo);
+
+        JLabel texto = new JLabel("Adivinaste la palabra en:");
+        texto.setFont(new Font("Segoe UI", Font.PLAIN, 15));
+        texto.setForeground(TEXT_MUTED);
+        texto.setHorizontalAlignment(SwingConstants.CENTER);
+        texto.setBounds(0, 105, 620, 25);
+        getContentPane().add(texto);
+
+        JLabel tiempo = new JLabel(tiempoDeJuego);
+        tiempo.setFont(new Font("Segoe UI", Font.BOLD, 28));
+        tiempo.setForeground(TEXT);
+        tiempo.setHorizontalAlignment(SwingConstants.CENTER);
+        tiempo.setBounds(0, 135, 620, 40);
+        getContentPane().add(tiempo);
+
+        JLabel ingresoDeNombreLabel = new JLabel("Ingresá tu nombre para el ranking:");
+        ingresoDeNombreLabel.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        ingresoDeNombreLabel.setForeground(TEXT_MUTED);
+        ingresoDeNombreLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        ingresoDeNombreLabel.setBounds(0, 200, 550, 20);
+        getContentPane().add(ingresoDeNombreLabel);
+
+        nombre = new JTextField();
+        nombre.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        nombre.setBackground(Color.decode("#1a1a1b"));
+        nombre.setForeground(TEXT);
+        nombre.setCaretColor(TEXT);
+        nombre.setHorizontalAlignment(SwingConstants.CENTER);
+        nombre.setBorder(BorderFactory.createCompoundBorder(
+            BorderFactory.createLineBorder(Color.decode("#3a3a3c"), 1),
+            BorderFactory.createEmptyBorder(4, 8, 4, 8)
+        ));
+        nombre.setBounds(210, 230, 200, 30);
+        getContentPane().add(nombre);
+
+        JButton btnRegistrar = Main.crearBoton("Registrar", GREEN, Color.decode("#6aaf5e"));
+        btnRegistrar.setBounds(250, 280, 120, 32);
+        getContentPane().add(btnRegistrar);
+
+        btnRegistrar.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // TODO: guardar record
+                main.setVisible(true);
+                dispose();
+            }
+        });
+    }
 }

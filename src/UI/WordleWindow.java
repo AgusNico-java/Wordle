@@ -1,51 +1,83 @@
 package UI;
 
-import java.awt.EventQueue;
-import javax.swing.JFrame;
-import logica.modelo.EstadoDeJuego;
-import logica.modelo.Juego;
-import logica.modelo.LetraArriesgada;
-import javax.swing.JLabel;
+import java.awt.Color;
+import java.awt.Cursor;
+import java.awt.Dimension;
 import java.awt.Font;
-import javax.swing.JTextField;
-import javax.swing.JButton;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.List;
-import java.awt.event.ActionEvent;
-import javax.swing.JPanel;
+
 import javax.swing.BorderFactory;
-import java.awt.GridLayout;
-import java.awt.Color;
-import java.awt.Dimension;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+
+import logica.modelo.EstadoDeJuego;
+import logica.modelo.Juego;
+import logica.modelo.LetraArriesgada;
 
 public class WordleWindow extends JFrame {
 
-    private Juego juego;
-    public JTextField ingresoDePalabra;
-
-    private JPanel grillaPalabras;
+    private static final Color BG       = Color.decode("#121213");
+    private static final Color TEXT     = Color.WHITE;
+    private static final Color TEXT_MUTED = Color.decode("#818384");
 
     private static final int CELL_SIZE   = 45;
-    private static final int GRID_X      = 10;
-    private static final int GRID_Y      = 110;
+    private static final int GRID_X      = 110;
+    private static final int GRID_Y      = 115;
     private static final int GRID_WIDTH  = 400;
     private static final int GRID_HEIGHT = 300;
 
+    private Juego juego;
+    private JTextField ingresoDePalabra;
+    private JPanel grillaPalabras;
+
     public WordleWindow(JFrame parent, String dificultad) {
         this.juego = new Juego(dificultad);
+
+        setSize(620, 580);
+        setLocationRelativeTo(parent);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setTitle("Wordle");
+        getContentPane().setBackground(BG);
         getContentPane().setLayout(null);
 
-        JLabel titulo = new JLabel("JUEGO EN CURSO");
-        titulo.setFont(new Font("Tahoma", Font.PLAIN, 15));
-        titulo.setBounds(127, 10, 198, 36);
+        JLabel titulo = new JLabel("WORDLE");
+        titulo.setFont(new Font("Segoe UI", Font.BOLD, 22));
+        titulo.setForeground(Color.decode("#538d4e"));
+        titulo.setHorizontalAlignment(SwingConstants.CENTER);
+        titulo.setBounds(0, 15, 620, 30);
         getContentPane().add(titulo);
 
+        JLabel lblPalabraSecreta = new JLabel("Palabra secreta: " + juego.palabraSecreta);
+        lblPalabraSecreta.setFont(new Font("Segoe UI", Font.PLAIN, 11));
+        lblPalabraSecreta.setForeground(TEXT_MUTED);
+        lblPalabraSecreta.setBounds(10, 15, 200, 20);
+        getContentPane().add(lblPalabraSecreta);
+
+        JLabel etiqueta = new JLabel("Ingresá una palabra");
+        etiqueta.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+        etiqueta.setForeground(TEXT_MUTED);
+        etiqueta.setBounds(110, 58, 150, 20);
+        getContentPane().add(etiqueta);
+
         ingresoDePalabra = new JTextField();
-        ingresoDePalabra.setBounds(4, 78, 184, 24);
-        getContentPane().add(ingresoDePalabra);
+        ingresoDePalabra.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        ingresoDePalabra.setBackground(Color.decode("#1a1a1b"));
+        ingresoDePalabra.setForeground(TEXT);
+        ingresoDePalabra.setCaretColor(TEXT);
+        ingresoDePalabra.setBorder(BorderFactory.createCompoundBorder(
+            BorderFactory.createLineBorder(Color.decode("#3a3a3c"), 1),
+            BorderFactory.createEmptyBorder(4, 8, 4, 8)
+        ));
+        ingresoDePalabra.setBounds(110, 80, 240, 28);
         ingresoDePalabra.setColumns(10);
         ingresoDePalabra.addKeyListener(new KeyAdapter() {
             @Override
@@ -55,45 +87,45 @@ public class WordleWindow extends JFrame {
                 if (ingresoDePalabra.getText().length() >= juego.getNumeroDeLetras()) e.consume();
             }
         });
+        getContentPane().add(ingresoDePalabra);
 
-        JLabel etiquetaIngresoPalabra = new JLabel("Ingrese una palabra");
-        etiquetaIngresoPalabra.setFont(new Font("Tahoma", Font.PLAIN, 12));
-        etiquetaIngresoPalabra.setBounds(10, 55, 141, 24);
-        getContentPane().add(etiquetaIngresoPalabra);
+        JButton botonArriesgar = Main.crearBoton("Arriesgar", Color.decode("#538d4e"), Color.decode("#6aaf5e"));
+        botonArriesgar.setBounds(360, 80, 110, 28);
+        getContentPane().add(botonArriesgar);
 
         grillaPalabras = new JPanel();
         grillaPalabras.setBounds(GRID_X, GRID_Y, GRID_WIDTH, GRID_HEIGHT);
-        grillaPalabras.setBackground(Color.decode("#121213"));
+        grillaPalabras.setBackground(BG);
         getContentPane().add(grillaPalabras);
 
-        JLabel intentosRestantes = new JLabel("INTENTOS RESTANTES: ");
-        intentosRestantes.setBounds(10, 430, 124, 24);
-        getContentPane().add(intentosRestantes);
+        JPanel panelIntentos = new JPanel();
+        panelIntentos.setLayout(null);
+        panelIntentos.setBackground(Color.decode("#1a1a1b"));
+        panelIntentos.setBorder(BorderFactory.createLineBorder(Color.decode("#3a3a3c"), 1));
+        panelIntentos.setBounds(110, 425, 200, 30);
+        getContentPane().add(panelIntentos);
+
+        JLabel intentosLabel = new JLabel("Intentos restantes:");
+        intentosLabel.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+        intentosLabel.setForeground(TEXT_MUTED);
+        intentosLabel.setBounds(8, 7, 140, 16);
+        panelIntentos.add(intentosLabel);
 
         JLabel numeroIntentos = new JLabel(String.valueOf(juego.getIntentos()));
-        numeroIntentos.setBounds(144, 436, 44, 12);
-        getContentPane().add(numeroIntentos);
+        numeroIntentos.setFont(new Font("Segoe UI", Font.BOLD, 12));
+        numeroIntentos.setForeground(Color.decode("#538d4e"));
+        numeroIntentos.setBounds(152, 7, 30, 16);
+        panelIntentos.add(numeroIntentos);
 
-        JLabel lblPalabraSecreta = new JLabel(juego.palabraSecreta);
-        lblPalabraSecreta.setBounds(185, 432, 71, 20);
-        getContentPane().add(lblPalabraSecreta);
-
-        JButton btnRendirse = new JButton("RENDIRSE");
-        btnRendirse.addActionListener(e -> {
-            dispose();
-            parent.setVisible(true);
-        });
-        btnRendirse.setBounds(324, 431, 84, 20);
+        JButton btnRendirse = Main.crearBoton("Rendirse", Color.decode("#3a3a3c"), Color.decode("#535355"));
+        btnRendirse.setBounds(430, 425, 100, 30);
         getContentPane().add(btnRendirse);
 
-        JButton botonArriesgar = new JButton("ARRIESGAR");
         botonArriesgar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 juego.verificarPalabra(ingresoDePalabra.getText());
                 numeroIntentos.setText(String.valueOf(juego.getIntentos()));
-
                 actualizarGrilla(juego.getPalabrasUsadas());
-
                 ingresoDePalabra.setText("");
 
                 if (juego.getEstadoDeJuego().equals(EstadoDeJuego.DERROTA)) {
@@ -104,11 +136,13 @@ public class WordleWindow extends JFrame {
                 }
             }
         });
-        ingresoDePalabra.addActionListener(e -> botonArriesgar.doClick());
-        botonArriesgar.setBounds(198, 77, 101, 24);
-        getContentPane().add(botonArriesgar);
 
-        initialize();
+        ingresoDePalabra.addActionListener(e -> botonArriesgar.doClick());
+
+        btnRendirse.addActionListener(e -> {
+            dispose();
+            parent.setVisible(true);
+        });
     }
 
     private void actualizarGrilla(List<LetraArriesgada[]> palabrasUsadas) {
@@ -140,7 +174,7 @@ public class WordleWindow extends JFrame {
             String.valueOf(letra.getLetra()).toUpperCase(),
             SwingConstants.CENTER
         );
-        celda.setFont(new Font("Arial", Font.BOLD, 20));
+        celda.setFont(new Font("Segoe UI", Font.BOLD, 20));
         celda.setForeground(Color.WHITE);
         celda.setOpaque(true);
         celda.setBackground(Color.decode(letra.getColor()));
@@ -159,10 +193,5 @@ public class WordleWindow extends JFrame {
         Derrota derrota = new Derrota(parent, juego.palabraSecreta);
         derrota.setVisible(true);
         setVisible(false);
-    }
-
-    private void initialize() {
-        setBounds(100, 100, 450, 500);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }
