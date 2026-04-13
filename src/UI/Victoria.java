@@ -44,14 +44,14 @@ public class Victoria extends JFrame {
         texto.setFont(new Font("Segoe UI", Font.PLAIN, 15));
         texto.setForeground(TEXT_MUTED);
         texto.setHorizontalAlignment(SwingConstants.CENTER);
-        texto.setBounds(0, 105, 620, 25);
+        texto.setBounds(0, 142, 620, 25);
         getContentPane().add(texto);
 
         JLabel tiempo = new JLabel(tiempoDeJuego);
         tiempo.setFont(new Font("Segoe UI", Font.BOLD, 28));
         tiempo.setForeground(TEXT);
         tiempo.setHorizontalAlignment(SwingConstants.CENTER);
-        tiempo.setBounds(0, 135, 620, 40);
+        tiempo.setBounds(0, 244, 620, 40);
         getContentPane().add(tiempo);
 
         JButton botonVolver = Main.crearBoton("← Volver", Color.decode("#1a1a1b"), Color.decode("#2c2c2e"));
