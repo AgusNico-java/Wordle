@@ -38,6 +38,7 @@ public class WordleWindow extends JFrame {
     private Juego juego;
     private JTextField ingresoDePalabra;
     private JPanel grillaPalabras;
+    private JLabel lblError;
 
     public WordleWindow(JFrame parent, String dificultad) {
         this.juego = new Juego(dificultad);
@@ -88,6 +89,12 @@ public class WordleWindow extends JFrame {
             }
         });
         getContentPane().add(ingresoDePalabra);
+        
+        lblError = new JLabel("");
+        lblError.setFont(new Font("Segoe UI", Font.PLAIN, 11));
+        lblError.setForeground(Color.decode("#e53935"));
+        lblError.setBounds(75, 110, 300, 16);
+        getContentPane().add(lblError);
 
         JButton botonArriesgar = Main.crearBoton("Arriesgar", Color.decode("#538d4e"), Color.decode("#6aaf5e"));
         botonArriesgar.setBounds(325, 80, 110, 28);
@@ -123,7 +130,22 @@ public class WordleWindow extends JFrame {
 
         botonArriesgar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                juego.verificarPalabra(ingresoDePalabra.getText());
+                String texto = ingresoDePalabra.getText().trim();
+
+                if (texto.length() != juego.getNumeroDeLetras()) {
+                    ingresoDePalabra.setBorder(BorderFactory.createCompoundBorder(
+                        BorderFactory.createLineBorder(Color.decode("#e53935"), 1),
+                        BorderFactory.createEmptyBorder(4, 8, 4, 8)
+                    ));
+                    return;
+                }
+
+                ingresoDePalabra.setBorder(BorderFactory.createCompoundBorder(
+                    BorderFactory.createLineBorder(Color.decode("#3a3a3c"), 1),
+                    BorderFactory.createEmptyBorder(4, 8, 4, 8)
+                ));
+
+                juego.verificarPalabra(texto);
                 numeroIntentos.setText(String.valueOf(juego.getIntentos()));
                 actualizarGrilla(juego.getPalabrasUsadas());
                 ingresoDePalabra.setText("");
