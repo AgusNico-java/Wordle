@@ -135,19 +135,7 @@ public class WordleWindow extends JFrame {
                     dispararPantallaDerrota(parent);
                 }
                 if (juego.getEstadoDeJuego().equals(EstadoDeJuego.VICTORIA)) {
-                    // 1. Obtenemos el texto (ej: "00:53")
-                    String tiempoTexto = juego.getTiempoDeJuego();
-
-                    // 2. Lo dividimos en el array: partes[0] son minutos, partes[1] son segundos
-                    String[] partes = tiempoTexto.split(":");
-
-                    // 3. Parseamos cada parte a número
-                    long minutos = Long.parseLong(partes[0]);
-                    long segundos = Long.parseLong(partes[1]);
-
-                    // 4. Convertimos a milisegundos
-                    // Multiplicamos por 60 para ir a segundos, y por 1000 para llegar a milisegundos
-                    long tiempoEnMilis = ((minutos * 60) + segundos) * 1000;
+                    long tiempoEnMilis = Record.textoAMilisegundos(juego.getTiempoDeJuego());
 
                     String nombre = JOptionPane.showInputDialog("Ingrese su nombre:");
                     if (nombre != null && !nombre.trim().isEmpty()) {
