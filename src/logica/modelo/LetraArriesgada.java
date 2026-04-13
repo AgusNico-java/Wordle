@@ -3,11 +3,7 @@ package logica.modelo;
 public class LetraArriesgada {
 	private char letra;
 	private String color;
-<<<<<<< HEAD
 	
-=======
-
->>>>>>> master
 	public LetraArriesgada(char letra, String color) {
 		this.letra = letra;
 		this.color = color;

@@ -11,7 +11,6 @@ import logica.Constants;
 import logica.ServicioDeArchivos;
 
 public class Juego {
-<<<<<<< HEAD
 	
 	public String palabraSecreta;
 	private String tiempoDeJuego;
@@ -26,22 +25,6 @@ public class Juego {
 	
 	private List<LetraArriesgada[]> palabrasUsadas;
 	
-=======
-
-	public String palabraSecreta;
-	private String tiempoDeJuego;
-
-	private EstadoDeJuego estadoDeJuego;
-
-	private int intentos;
-	private int numeroDeLetras;
-
-	private long horaDeInicio;
-	private long horaDeVictoria;
-
-	private List<LetraArriesgada[]> palabrasUsadas;
-
->>>>>>> master
 	public Juego(String dificultad) {
 		this.horaDeInicio = Instant.now().toEpochMilli();
 		this.intentos = 6;
@@ -50,20 +33,12 @@ public class Juego {
 		this.estadoDeJuego = EstadoDeJuego.EN_CURSO;
 		this.palabrasUsadas = new ArrayList<>();
 	}
-<<<<<<< HEAD
 	
-=======
-
->>>>>>> master
 	private String elegirPalabra(int numeroDeLetras) {
 		String archivoALeer = String.format("palabras_de_%d_letras.txt", numeroDeLetras);
 		return ServicioDeArchivos.elegirPalabra(archivoALeer);
 	}
-<<<<<<< HEAD
 	
-=======
-
->>>>>>> master
 	public void verificarPalabra(String palabraArriesgada) {
 		this.intentos--;
 		if(palabraArriesgada.equalsIgnoreCase(this.palabraSecreta)) {
@@ -74,15 +49,9 @@ public class Juego {
 		if(intentos == 0 && (!this.estadoDeJuego.equals(EstadoDeJuego.VICTORIA))) {
 			this.estadoDeJuego = EstadoDeJuego.DERROTA;
 		}
-<<<<<<< HEAD
 		this.palabrasUsadas.add(this.formarArregloDeLetrasArriesgadas(palabraArriesgada));		
 	}
 	
-=======
-		this.palabrasUsadas.add(this.formarArregloDeLetrasArriesgadas(palabraArriesgada));
-	}
-
->>>>>>> master
 	public List<LetraArriesgada[]> getPalabrasUsadas() {
 		return palabrasUsadas;
 	}
@@ -93,21 +62,13 @@ public class Juego {
 		Duration d = Duration.ofMillis(tiempoEnMilis);
 		String tiempo = String.format("%02d:%02d", d.toMinutes(), d.toSecondsPart());
 		this.tiempoDeJuego = tiempo;
-<<<<<<< HEAD
 		
-=======
-
->>>>>>> master
 	}
 
 	public String getTiempoDeJuego() {
 		return tiempoDeJuego;
 	}
-<<<<<<< HEAD
 	
-=======
-
->>>>>>> master
 	private LetraArriesgada[] formarArregloDeLetrasArriesgadas(String palabraArriesgada) {
 	    int longitud = palabraSecreta.length();
 	    LetraArriesgada[] resultado = new LetraArriesgada[longitud];
@@ -127,13 +88,7 @@ public class Juego {
 	    }
 
 	    for (int i = 0; i < longitud; i++) {
-<<<<<<< HEAD
 	        if (resultado[i] != null) continue;
-=======
-	        if (resultado[i] != null) {
-				continue;
-			}
->>>>>>> master
 
 	        char c = usuarioArr[i];
 	        int restantes = disponibles.getOrDefault(c, 0);
@@ -160,20 +115,11 @@ public class Juego {
 	public EstadoDeJuego getEstadoDeJuego() {
 		return estadoDeJuego;
 	}
-<<<<<<< HEAD
 	
 	
 	
 	
 	
 	
-=======
-
-
-
-
-
-
->>>>>>> master
 
 }

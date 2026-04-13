@@ -1,15 +1,5 @@
 package logica.modelo;
 
-<<<<<<< HEAD
-import java.util.List;
-
-public class RecordTable {
-	private List<Record> records;
-	
-	
-
-}
-=======
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
@@ -31,7 +21,7 @@ public class RecordTable {
 
     public void agregarRecord(Record r) {
         records.add(r);
-        
+
         // 1. ORDENAMOS EXPLICITAMENTE: Menor tiempo primero (Facundo con 5s arriba)
         records.sort(Comparator.comparingLong(Record::getTime));
 
@@ -79,4 +69,3 @@ public class RecordTable {
         }
     }
 }
->>>>>>> master

@@ -3,29 +3,18 @@ package logica;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-<<<<<<< HEAD
 
-=======
->>>>>>> master
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.Random;
-<<<<<<< HEAD
-=======
-
->>>>>>> master
 import logica.modelo.Record;
 
 public class ServicioDeArchivos {
 
 	private static final Random random = new Random();
-<<<<<<< HEAD
 	
-=======
-
->>>>>>> master
 	public static String elegirPalabra(String archivo) {
 		try {
 			List<String> lineas = Files.readAllLines(Paths.get(archivo));
@@ -33,11 +22,7 @@ public class ServicioDeArchivos {
 					.map(String::trim)
 					.filter(line -> ! (line.isEmpty() || line.isBlank()))
 					.toList();
-<<<<<<< HEAD
 			
-=======
-
->>>>>>> master
 			if(palabras.isEmpty()) {
 				throw new Exception("El archivo no contiene ninguna palabra");
 			}
@@ -46,15 +31,9 @@ public class ServicioDeArchivos {
 			e.printStackTrace();
 			return null;
 		}
-<<<<<<< HEAD
 		
 	}
 	
-=======
-
-	}
-
->>>>>>> master
     public List<Record> readRecordList(){
         Path path = Path.of(Constants.RECORD_FILE_PATH);
 
@@ -88,11 +67,7 @@ public class ServicioDeArchivos {
                 writer.newLine();
             }
         } catch (IOException e) {
-<<<<<<< HEAD
             e.printStackTrace();;
-=======
-            e.printStackTrace();
->>>>>>> master
         }
 
     }
