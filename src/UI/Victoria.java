@@ -44,44 +44,35 @@ public class Victoria extends JFrame {
         texto.setFont(new Font("Segoe UI", Font.PLAIN, 15));
         texto.setForeground(TEXT_MUTED);
         texto.setHorizontalAlignment(SwingConstants.CENTER);
-        texto.setBounds(0, 105, 620, 25);
+        texto.setBounds(0, 142, 620, 25);
         getContentPane().add(texto);
 
         JLabel tiempo = new JLabel(tiempoDeJuego);
         tiempo.setFont(new Font("Segoe UI", Font.BOLD, 28));
         tiempo.setForeground(TEXT);
         tiempo.setHorizontalAlignment(SwingConstants.CENTER);
-        tiempo.setBounds(0, 135, 620, 40);
+        tiempo.setBounds(0, 244, 620, 40);
         getContentPane().add(tiempo);
 
-        JLabel ingresoDeNombreLabel = new JLabel("Ingresá tu nombre para el ranking:");
-        ingresoDeNombreLabel.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-        ingresoDeNombreLabel.setForeground(TEXT_MUTED);
-        ingresoDeNombreLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        ingresoDeNombreLabel.setBounds(0, 200, 550, 20);
-        getContentPane().add(ingresoDeNombreLabel);
+        JButton botonVolver = Main.crearBoton("← Volver", Color.decode("#1a1a1b"), Color.decode("#2c2c2e"));
+        botonVolver.setBounds(20, 400, 110, 32);
+        getContentPane().add(botonVolver);
 
-        nombre = new JTextField();
-        nombre.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-        nombre.setBackground(Color.decode("#1a1a1b"));
-        nombre.setForeground(TEXT);
-        nombre.setCaretColor(TEXT);
-        nombre.setHorizontalAlignment(SwingConstants.CENTER);
-        nombre.setBorder(BorderFactory.createCompoundBorder(
-            BorderFactory.createLineBorder(Color.decode("#3a3a3c"), 1),
-            BorderFactory.createEmptyBorder(4, 8, 4, 8)
-        ));
-        nombre.setBounds(210, 230, 200, 30);
-        getContentPane().add(nombre);
+        JButton botonJugar = Main.crearBoton("Jugar", Color.decode("#538d4e"), Color.decode("#6aaf5e"));
+        botonJugar.setBounds(474, 400, 110, 32);
+        getContentPane().add(botonJugar);
 
-        JButton btnRegistrar = Main.crearBoton("Registrar", GREEN, Color.decode("#6aaf5e"));
-        btnRegistrar.setBounds(250, 280, 120, 32);
-        getContentPane().add(btnRegistrar);
-
-        btnRegistrar.addActionListener(new ActionListener() {
+        botonVolver.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                // TODO: guardar record
                 main.setVisible(true);
+                dispose();
+            }
+        });
+
+        botonJugar.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                SeleccionDeNivel seleccionDeNivel = new SeleccionDeNivel(main);
+                seleccionDeNivel.setVisible(true);
                 dispose();
             }
         });

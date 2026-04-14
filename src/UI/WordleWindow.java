@@ -15,6 +15,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
@@ -22,6 +23,8 @@ import javax.swing.SwingConstants;
 import logica.modelo.EstadoDeJuego;
 import logica.modelo.Juego;
 import logica.modelo.LetraArriesgada;
+import logica.modelo.Record;
+import logica.modelo.RecordTable;
 
 public class WordleWindow extends JFrame {
 
@@ -132,6 +135,15 @@ public class WordleWindow extends JFrame {
                     dispararPantallaDerrota(parent);
                 }
                 if (juego.getEstadoDeJuego().equals(EstadoDeJuego.VICTORIA)) {
+                    long tiempoEnMilis = Record.textoAMilisegundos(juego.getTiempoDeJuego());
+
+                    String nombre = JOptionPane.showInputDialog("Ingrese su nombre:");
+                    if (nombre != null && !nombre.trim().isEmpty()) {
+                        RecordTable tabla = new RecordTable();
+                        // Ahora el Record recibe el tiempo en milisegundos (53000 en este caso)
+                        tabla.agregarRecord(new Record(nombre, tiempoEnMilis));
+                    }
+
                     dispararPantallaVictoria(parent);
                 }
             }
