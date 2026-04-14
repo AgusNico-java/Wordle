@@ -32,7 +32,8 @@ public class Records extends JFrame {
     }
 
     private void initialize(Main parent) {
-        setBounds(100, 100, 450, 420);
+        setSize(620, 480);
+        setLocationRelativeTo(parent);
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(null);
         getContentPane().setBackground(BG_COLOR);
@@ -42,7 +43,7 @@ public class Records extends JFrame {
         titulo.setForeground(TITLE_COLOR);
         titulo.setFont(FONT_TITLE);
         titulo.setHorizontalAlignment(SwingConstants.CENTER);
-        titulo.setBounds(0, 15, 450, 40);
+        titulo.setBounds(0, 15, 620, 40);
         getContentPane().add(titulo);
 
         RecordTable tabla = new RecordTable();
@@ -67,12 +68,12 @@ public class Records extends JFrame {
 
         JLabel labelRecords = new JLabel(texto);
         labelRecords.setVerticalAlignment(JLabel.TOP);
-        labelRecords.setBounds(75, 75, 300, 240);
+        labelRecords.setBounds(160, 75, 300, 240);
         getContentPane().add(labelRecords);
 
         // --- BOTÓN VOLVER (Gris) ---
         JButton botonVolver = new JButton("Volver");
-        botonVolver.setBounds(30, 330, 110, 35);
+        botonVolver.setBounds(30, 395, 110, 35);
         estilizarBoton(botonVolver, BUTTON_GRAY);
         getContentPane().add(botonVolver);
 
@@ -83,7 +84,7 @@ public class Records extends JFrame {
 
         // --- BOTÓN NUEVA PARTIDA (Verde) ---
         JButton botonIniciarPartida = new JButton("Nueva Partida");
-        botonIniciarPartida.setBounds(270, 330, 145, 35);
+        botonIniciarPartida.setBounds(429, 395, 145, 35);
         estilizarBoton(botonIniciarPartida, BUTTON_GREEN);
         getContentPane().add(botonIniciarPartida);
 

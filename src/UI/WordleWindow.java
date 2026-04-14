@@ -15,7 +15,6 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
@@ -137,8 +136,10 @@ public class WordleWindow extends JFrame {
                 if (juego.getEstadoDeJuego().equals(EstadoDeJuego.VICTORIA)) {
                     long tiempoEnMilis = Record.textoAMilisegundos(juego.getTiempoDeJuego());
 
-                    String nombre = JOptionPane.showInputDialog("Ingrese su nombre:");
-                    if (nombre != null && !nombre.trim().isEmpty()) {
+                    NombreDialog dialog = new NombreDialog(parent);
+                    dialog.setVisible(true);
+                    String nombre = dialog.getNombre();
+                    if (nombre != null) {
                         RecordTable tabla = new RecordTable();
                         // Ahora el Record recibe el tiempo en milisegundos (53000 en este caso)
                         tabla.agregarRecord(new Record(nombre, tiempoEnMilis));
